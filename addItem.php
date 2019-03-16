@@ -5,9 +5,9 @@
 </head>
 
 <body>
-	<form action="https://localhost/itemAdded.php" method="post">
+	<form action="http://www.mallardmarinetx.com/itemAdded.php" method="post">
 
-	<b>Add a New Student</b>
+	<b>Add a New Item</b>
 
 	<p>Title:
 	<input type="text" name="title" size="30" value="" />

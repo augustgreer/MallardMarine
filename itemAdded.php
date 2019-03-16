@@ -6,7 +6,7 @@
 <body>
 
 <?php
-if(isset($_POST['submit'])) {
+if(isset($_POST['Submit'])) {
      
 
     $data_missing = array();
@@ -28,7 +28,7 @@ if(isset($_POST['submit'])) {
 	} 	
 	else {
         // Trim white space from the name and store the name
-        $title = trim($_POST['description']);
+        $description = trim($_POST['description']);
     }
 
     if(empty($_POST['price'])) {
@@ -37,7 +37,7 @@ if(isset($_POST['submit'])) {
 	} 	
 	else {
         // Trim white space from the name and store the name
-        $title = trim($_POST['price']);
+        $price = trim($_POST['price']);
     }
 
     if(empty($_POST['photo'])) {
@@ -46,7 +46,7 @@ if(isset($_POST['submit'])) {
 	} 	
 	else {
         // Trim white space from the name and store the name
-        $title = trim($_POST['photo']);
+        $photo = trim($_POST['photo']);
     }
 
     if(empty($_POST['featured'])) {
@@ -55,7 +55,7 @@ if(isset($_POST['submit'])) {
 	} 	
 	else {
         // Trim white space from the name and store the name
-        $title = trim($_POST['featured']);
+        $featured = trim($_POST['featured']);
     }
 
     if(empty($_POST['category'])) {
@@ -64,15 +64,43 @@ if(isset($_POST['submit'])) {
 	} 	
 	else {
         // Trim white space from the name and store the name
-        $title = trim($_POST['category']);
+        $category = trim($_POST['category']);
     }
 
     if (empty($data_missing)) {
-    	$sql = "INSERT INTO inventory ". 
-    	"title, description, price, photo, featured, category ".
-    	"VALUES $title, $description, $price, $photo, $featured, $category";
 
-    	$valid = mysql_query($sql, $dbc);
+
+
+
+    	require_once('mysql_connect.php');
+         
+        $sql = "INSERT INTO listings (title, description, price, photo, featured, category) VALUES (?, ?, ?, ?, ?, ?)";
+         
+        $expr = mysqli_prepare($dbc, $sql);
+         
+        mysqli_stmt_bind_param($expr, "ssisss", $title, $description, $price, $photo, $featured, $category);
+         
+        mysqli_stmt_execute($expr);
+         
+        $affected_rows = mysqli_stmt_affected_rows($expr);
+         
+        if($affected_rows == 1){             
+            echo 'Student Entered';           
+            mysqli_stmt_close($expr);            
+            mysqli_close($dbc);            
+        } 
+        else {             
+            echo 'Error Occurred<br />';
+            echo mysqli_error();            
+            mysqli_stmt_close($expr);             
+            mysqli_close($dbc);
+        }
+    }
+    	/*require_once('mysql_connect.php');
+
+    	$sql = 'INSERT INTO listings VALUES ($title, $description, $price, $photo, $featured, $category)';
+
+    	$valid = mysqli_query($dbc, $sql);
 
     	if ($valid) {
     		echo "Item added successfully";
@@ -80,22 +108,23 @@ if(isset($_POST['submit'])) {
     	}
     	else {
     		echo "Error: <br />";
-    		echo mysqli_error();
+    		echo mysqli_error($dbc);
     		mysqli_close($dbc);
     	}
     	
-    }
+    }*/
     else {
     		echo "you must enter: <br />";
     		foreach ($data_missing as $empty) {
     			echo "$empty <br />";
     		}
     }
+}
 ?>
 
-<form action="https://localhost/itemAdded.php" method="post">
+<form action="http://www.mallardmarinetx.com/itemAdded.php" method="post">
 
-	<b>Add a New Student</b>
+	<h1>Add Item</h1>
 
 	<p>Title:
 	<input type="text" name="title" size="30" value="" />
@@ -126,8 +155,6 @@ if(isset($_POST['submit'])) {
 	</p>
 
 	</form>>
-
-}
 
 </body>
 </html>

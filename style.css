@@ -13,70 +13,24 @@ a {
 }
 
 hr {
-    width: 600px;
+    width: 80%;
     height: 1px;
     background: white;
-    border-top: 3px solid rgb(59, 141, 199);
+    border-top: 2px solid rgb(59, 141, 199);
 }
 
 a:not(.corner-logo-a):hover {
     opacity: .7;
 }
 
-.top-padding {
-    padding-top: 100px;
-}
-
-.footer {
+footer {
     margin: 30px;
+    border-top: 2px solid rgb(59, 141, 199);
 }
 
-/**********NAVBAR**********/
-#navbar {
-    margin: 20px 0px;
-    background-color: rgb(59, 141, 199);
-    padding: 20px 0px 20px 200px;
-    position: absolute;
-    /*left: 250px;*/
-    top: 0px;
-    width: 100%;
-    z-index: 0;
-}
-
-#navbar h3 {
-    text-align: center;
-    /*background-repeat: no-repeat;
-    background-position: center;*/
-    margin: 5px;
-    display: inline;
-    font-variant-caps: small-caps;
-    font-size: 1.4em;
-}
-
-#navbar a {
-    text-decoration: none;
-    color: white;
-    padding: 20px 40px;
-}
-
-#navbar a:hover {
-    background-color: white;
-    color: rgb(59, 141, 199);
-    border-bottom: 3px ridge yellow;
-}
-
-/**********PERSISTENT**********/
-
-.corner-logo {
-    width: 125px;
-    position: absolute;
-    left: 20px;
-    top: 15px;
-    z-index: 1;
-}
-
-.corner-logo:hover {
-    opacity: .7;
+.header {
+    /*font-family: sans-serif, "fantasy";*/
+    color: #66A5ED
 }
 
 /**********MODIFIERS**********/
@@ -86,11 +40,11 @@ a:not(.corner-logo-a):hover {
 }
 
 .biggest-text {
-    font-size: 3em;
+    font-size: calc(16px + 4vw);
 }
 
 .big-text {
-    font-size: 1.5em;
+    font-size: calc(16px + 0.8vw);
 }
 
 .center {
@@ -104,13 +58,21 @@ a:not(.corner-logo-a):hover {
     text-align: center;
 }
 
-.rotate-90 {
-    /*-webkit-transform: rotate(90deg);
+.top-margin {
+    margin-top: 13%;
+}
+
+.top-padding {
+    padding-top: 100px;
+}
+
+/*.rotate-90 {
+    -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -o-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);*/
+    -ms-transform: rotate(90deg);
     transform: rotate(90deg); 
-}
+}*/
 
 .rotate-180 {
     /*-webkit-transform: rotate(180deg);
@@ -129,76 +91,125 @@ a:not(.corner-logo-a):hover {
     margin-bottom: 80px;
 }
 
+/**********NAVBAR**********/
+#navbar {
+    margin: 2% 0%;
+    background-color: rgb(59, 141, 199);
+    padding: 1.2% 0% 1.2% 11%;
+    position: absolute;
+    /*left: 250px;*/
+    top: 0px;
+    width: 89%;
+    z-index: 0;
+}
+
+#navbar h3 {
+    text-align: center;
+    /*background-repeat: no-repeat;
+    background-position: center;*/
+    margin: 2%;
+    display: inline;
+    font-variant-caps: small-caps;
+    font-size: 1.9vw;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: white;
+    padding: 1.2% 1%;
+}
+
+#navbar a:hover {
+    background-color: white;
+    color: rgb(59, 141, 199);
+    border-bottom: 3px ridge yellow;
+}
+
+/**********PERSISTENT**********/
+
+.corner-logo {
+    width: 9%;
+    position: absolute;
+    left: 2%;
+    top: 1%;
+    z-index: 1;
+}
+
+.corner-logo:hover {
+    opacity: .7;
+}
+
 /**********MAIN**********/
 
 #main-pic {
-    margin-top: 100px;
-    width: 500px;
+    width: 35%;
+    max-width: 500px;
 }
 
 #map {
-    padding-top: 20px;
-    padding-bottom: 80px; 
+    padding-top: 10%;
+    padding-bottom: 10%;
+    width:80%;
+    height: 500px;
 }
 
 #main {
     text-align: center;
 }
 
-#main h1 {
-    color: #DF1111;
-    text-align: center;
-    position: relative;
-    border: 6px solid black;
-    padding: 10px;
-    margin: 0px 100px;
-    top: 15px;
-}
-
 #main h2 {
-    padding: 0px 50px;
+    padding: 0% 10%;
+
 }
 
-#banner-pic {
-    width: 100%;
+.moved-banner {
+    color: white;
+    background-color: rgb(83, 201, 255);
+    background-blend-mode: difference;
+    width: 50%;
+    border-radius: 40%;
 }
 
 /**********CONTACTS**********/
 
-#contact-us-header {
-    font-family: sans-serif, "fantasy";
-    margin-top:70px;
-    color: #66A5ED
-}
-
 #contacts {
     text-align: center;
-    width: 50%;
-    margin: auto;
+    width: 70%;
+    margin: 13% auto;
 }
 
 /**********SERVICES**********/
 
-#services-header {
-    margin-top: 100px;
-}
-
 #services-table {
-    padding: 50px 0px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#services-table thead {
-    color: rgb(59, 141, 199);
+    margin: 0% auto 5% auto;
+    border-collapse: collapse;
+    border-spacing: 1em;
 }
 
 #services-table td {
-    padding: 40px 150px;
-    font-size: 30px;
+    padding: 7% 10%;
+    margin: 10px;
+    border: 1px dotted rgb(59, 141, 199);
 }
 
 /**********LISTINGS**********/
+.item {
+    margin: 10px;
+    width: 250px;
+    /*height: 50%;*/
+    float: left;
+    color: white;
+}
+
+.item-photo {
+    width: 90%;
+}
+
+/**********PRODUCT PAGES**********/
+.product-image {
+    width: 75%;
+}
+
 
 /**********PHOTOS**********/
 
