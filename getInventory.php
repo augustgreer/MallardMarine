@@ -1,38 +1,34 @@
-<?php
+<?php echo file_get_contents("header.html");
 
-require_once('mysql_connect.php');
+/*require_once('mysql_connect.php');
 
-$query = "SELECT title, description, price, photo, featured FROM inventory";
+$sql = "SELECT * FROM listings";
 
-$response = @mysql_query($dbc, $query);
+$response = mysqli_query($dbc, $sql);
 
-if ($respone) {
-	echo '<table>
-			<tr>
-				<td>Title</td>
-				<td>Description</td>
-				<td>Price</td>
-				<td>Photo</td>
-				<td>Featured</td>
-				<td>Category</td>
-			</tr>';
-
-		while ($row = mysql_fetch_array($respone)) {
-			echo '<tr><td>' . $row['title'] .
-				 '</td><td>' . $row['description'] .
-				 '</td><td>' . $row['price'] .
-				 '</td><td>' . $row['photo'] .
-				 '</td><td>' . $row['featured'] .
-				 '</td><td>' . $row['category'] . '</tr>';
-		}
-		echo '</table>';
+if (!$response) {
+	echo 'cannot execute query<br />';
+	echo mysqli_error($dbc);
 }
 
 else {
-	echo 'cannot execute query<br />';
-	echo mysql_error($dbc);
+		echo '<h1 class="header biggest-text top-margin center-text">Our Inventory</h1>';
+		echo '<div id="listings">';
+		while ($row = mysqli_fetch_array($response)) {
+			echo '<a href="product.php?product=' . $row['title'] . '"><div class="item">' .
+				'<div class="item-title">' . $row['title'] . '</div>' .
+				'<div><img class="item-photo" src=' . $row['photo'] . '.JPG></div>' .
+				#'<div class="item-description">' . $row['description'] . '</div>' .
+				'<div class="item-price">$' . $row['price'] . '</div>' .
+				#'<div class="item-featured">' . $row['featured'] . '</div>' .
+				#'<div class="item-category">' . $row['category'] . '</div>' .
+				'</div></a>';
+		}
+		echo '</div>';
 }
 
-mysql_close($dbc);
+mysqli_close($dbc);*/
 
-?>
+echo '<h1 class="header biggest-text top-margin center-text">Our Inventory</h1>';
+echo '<h1 class="top-margin center-text">Coming Soon!</h1>';
+echo '</body></html>'; ?>
